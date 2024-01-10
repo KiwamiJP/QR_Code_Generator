@@ -3,10 +3,14 @@ const qrImg = document.getElementById('qrImg');
 const inputText = document.getElementById('inputText');
 const imgBox = document.getElementById('imgBox');
 generateQR = () =>{
-  if(inputText.value.length>0 || imgBox.classList.contains('showImgBox')==false){
+  if(inputText.value.length>0 && imgBox.classList.contains('showImgBox')==false){
     qrImg.src=qr_url+inputText.value;
     imgBox.classList.add("showImgBox");
-  }else{
+  }else if(inputText.value.length>0 && imgBox.classList.contains('showImgBox')==true){
+      qrImg.src=qr_url+inputText.value;
+    }
+
+  else{
     imgBox.classList.remove("showImgBox");
     qrImg.src="";
     
